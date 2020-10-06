@@ -1,12 +1,12 @@
 provider "aws" {
     region = "ap-south-1"
-    profile = "usertf"
+    profile = "<IAM user>"
 }
 
 # security group for MySQL DB
 resource "aws_security_group" "task5-sg-db" {
   name = "SG-Database"
-  vpc_id = "vpc-085d508cabed5195d"                      // use VPC-ID assigned by AWS
+  vpc_id = "<VPC-ID provided by AWS>"                      // use VPC-ID assigned by AWS
 
   ingress {
     description = "MySQL"
@@ -35,9 +35,9 @@ resource "aws_db_instance" "task6-MySQL-DB" {
     identifier = "mysql"
     instance_class = "db.t2.micro"
     allocated_storage = 20
-    name = "WordPressDB"
-    username = "admin"
-    password = "rootdbsarthak"
+    name = "WordPressDB"                               // database name
+    username = "admin"                                 // database username
+    password = "rootdbsarthak"                         // database password
     parameter_group_name = "default.mysql5.7"
     auto_minor_version_upgrade = true
     publicly_accessible = true
